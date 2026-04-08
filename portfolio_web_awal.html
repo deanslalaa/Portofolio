@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio Salsabila</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: url('background.png');
+      background-size: cover;
+      background-repeat: repeat;
+      background-attachment: fixed;
+      color:#6c2831;
+    }
+
+    nav {
+      display:flex;
+      justify-content:space-between;
+      padding:20px 50px;
+      position:sticky;
+      top:0;
+      background:rgba(244,225,230,0.9);
+      backdrop-filter:blur(10px);
+    }
+
+    nav a {
+      margin-left:20px;
+      text-decoration:none;
+      color:#6c2831;
+      font-size:14px;
+    }
+
+    .hero {
+      height:90vh;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+    }
+
+    .hero h1 {
+      font-size:48px;
+    }
+
+    .hero span {
+      font-weight:600;
+    }
+
+    section {
+      padding:60px 80px;
+    }
+
+    h2 {
+      margin-bottom:20px;
+    }
+
+    .grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+      gap:20px;
+    }
+
+    .card {
+      background:white;
+      padding:20px;
+      border-radius:12px;
+      border:1px solid #f0cfd6;
+      transition:0.3s;
+    }
+
+    .card:hover {
+      transform:translateY(-5px);
+      box-shadow:0 10px 25px rgba(108,40,49,0.15);
+    }
+
+    .btn {
+      display:inline-block;
+      margin-top:10px;
+      padding:8px 15px;
+      background:#6c2831;
+      color:white;
+      border-radius:8px;
+      text-decoration:none;
+      font-size:14px;
+    }
+
+    footer {
+      text-align:center;
+      padding:20px;
+    }
+
+    /* ANIMATION */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* IMAGE HOVER */
+    .project-img {
+      width:100%;
+      border-radius:10px;
+      margin-bottom:10px;
+      transition: transform 0.4s ease;
+    }
+
+    .card:hover .project-img {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <h2>Portfolio</h2>
+    <div>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <h1>Hi, I'm <span>Salsabila Dean</span></h1>
+    <p>Creative Leader | Marketing Enthusiast | Team Management</p>
+  </div>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="card">
+      <p>
+        I am a Digital Business student with a strong passion for creating meaningful content and building strategies that can make a real impact.
+        I enjoy working in teams, taking on leadership roles, and turning ideas into something valuable and enjoyable for others.
+        For me, every project is an opportunity to learn, grow, and give my best contribution.
+      </p>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="grid">
+
+      <div class="card">
+        <img src="Tableau.jpeg" class="project-img">
+        <h3>Apple Store Data Analysis</h3>
+        <p>Analisis data menggunakan Tableau untuk memahami behavior user.</p>
+        <a href="https://public.tableau.com/app/profile/salsabila.dean.putri/viz/Book1_17503122252400/Story1" target="_blank" class="btn">Lihat Project</a>
+      </div>
+
+      <div class="card">
+        <img src="Fintech.png" class="project-img">
+        <h3>Fintech App Innovation</h3>
+        <p>Konsep aplikasi finansial berbasis user experience.</p>
+        <a href="https://www.figma.com/proto/zrSjj0u4hbNF72j5PdAVtp/Akulaku-Inovasi-Fintech?node-id=173-165&p=f&t=ORd010fQnGr1GROB-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=173%3A165&show-proto-sidebar=1" target="_blank" class="btn">Lihat Project</a>
+      </div>
+
+      <div class="card">
+        <img src="Bawang.png" class="project-img">
+        <h3>Digital Branding Strategy</h3>
+        <p>Strategi branding berbasis emotional marketing.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="card">
+      <p>Email: salsabiladean04@gmail.com</p>
+      <p>Instagram: @deanslalaa</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Salsabila</p>
+  </footer>
+
+  <script>
+    const elements = document.querySelectorAll('.card, section h2');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    elements.forEach(el => {
+      el.classList.add('fade-in');
+      observer.observe(el);
+    });
+  </script>
+
+</body>
+</html>
